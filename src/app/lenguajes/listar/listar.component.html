@@ -1,0 +1,53 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Ambito</th>
+            <th scope="col">Curva de prendizaje</th>
+            <th scope="col">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lenguaje of lenguajes; let indice = index">
+            <th scope="row">{{indice+1}}</th>
+            <td>{{lenguaje.nombre}}</td>
+            <td>{{lenguaje.ambito}}</td>
+            <td>{{lenguaje.aprendizaje}}</td>
+            <td scope="col" class="grid__2">
+                <div class="button__action">
+                    <button type="button" class="btn btn-warning">Actualizar</button>
+                </div>
+                <div class="button__action">
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="forms">
+    <div class="formularioRegistro">
+        <form [formGroup]="lenguajeForm" (ngSubmit)="insertar()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                <input formControlName="nombre" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Ambito</label>
+                <input formControlName="ambito" type="text" class="form-control" id="exampleInputPassword1">
+            </div>
+            <select formControlName="aprendizaje" class="form-select" aria-label="Default select example">
+                <option selected disabled>Open this select menu</option>
+                <ng-container *ngFor="let nivel of obtenerNivelesAprendizaje()">
+                    <option value={{nivel}}>{{nivel}}</option>
+                </ng-container>
+            </select>
+
+            <button style="margin-top: 2.5rem;" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="formularioActualizacion">
+
+    </div>
+</div>

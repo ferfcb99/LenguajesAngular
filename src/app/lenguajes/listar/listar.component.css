@@ -1,0 +1,9 @@
+.grid__2 {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.forms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
